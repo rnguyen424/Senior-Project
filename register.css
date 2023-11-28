@@ -1,0 +1,74 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color for the body */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #33aacc;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.container {
+    margin: 20px auto;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.container input[type="text"],
+.container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #33aacc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container p {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.container a {
+    text-decoration: none;
+    color: #33aacc;
+}
+
+/* Optional: Style for input labels, you can customize these styles */
+.container label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Optional: Style for error messages if needed */
+.error {
+    color: red;
+    margin-top: 5px;
+}
