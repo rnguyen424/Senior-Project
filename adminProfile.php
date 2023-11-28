@@ -98,10 +98,6 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                         role="tab" aria-controls="v-pills-recipes" aria-selected="true">My Recipes</a>
                     <a class="nav-link" id="v-pills-feedback-tab" data-toggle="pill" href="#v-pills-feedback" role="tab"
                         aria-controls="v-pills-feedback" aria-selected="false">My Feedback</a>
-                    <a class="nav-link" id="v-pills-goals-tab" data-toggle="pill" href="#v-pills-goals" role="tab"
-                        aria-controls="v-pills-goals" aria-selected="false">My Goals</a>
-                    <a class="nav-link" id="v-pills-preferences-tab" data-toggle="pill" href="#v-pills-preferences"
-                        role="tab" aria-controls="v-pills-preferences" aria-selected="false">My Allergens & Preferences</a>
                 
                 <h4 class="font-weight-bold mt-3 mb-2">Admin</h4>
         <a class="nav-link" id="v-pills-users-tab" data-toggle="pill" href="#v-pills-users" role="tab"
@@ -158,7 +154,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
     <!-- Liked Recipes Table -->
     <h3>Liked Recipes</h3>
     <table class="table">
-    <!-- ... (other table header rows) ... -->
+
     <tbody>
         <?php
         $likedStmt = $dbconnect->prepare("SELECT feedback.feedbackID, recipe.title, recipe.description, recipe.recipeID FROM feedback 
@@ -190,12 +186,6 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
     <h3>Disliked Recipes</h3>
     <table class="table">
         <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Action</th>
-                <th></th> <!-- Added column for the View Recipe button -->
-            </tr>
         </thead>
         <tbody>
             <?php
@@ -223,26 +213,6 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
         </tbody>
     </table>
 
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-goals" role="tabpanel"
-                        aria-labelledby="v-pills-goals-tab">
-                        <h2>My Goals</h2>
-                        
-                        <div class="add">
-                            <button onclick="window.location.href='addGoals.php'"class="btn btn-primary btn-sm">Add Goals</button>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-preferences" role="tabpanel"
-                        aria-labelledby="v-pills-preferences-tab">
-                        <h2>Allergens</h2>
-                        
-                        <div class="add">
-                            <button onclick="window.location.href='addAllergens.php'"class="btn btn-primary btn-sm">Add Allergens</button>
-                        </div>
-                        <h2>Preferences</h2>
-                        <div class="add">
-                            <button onclick="window.location.href='addPreferences.php'"class="btn btn-primary btn-sm">Add Preferences</button>
-                        </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-users" role="tabpanel" aria-labelledby="v-pills-users-tab">
                     <h2>All Users</h2>
@@ -312,6 +282,35 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
                     </div>
                     <div class="tab-pane fade" id="v-pills-add-ingredients" role="tabpanel" aria-labelledby="v-pills-add-ingredients-tab">
                     <h2>Requests</h2>
+                    <table class="table">
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Ingredient Request</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Fetch requests from the database
+            $requestsStmt = $dbconnect->prepare("SELECT * FROM request");
+            $requestsStmt->execute();
+            $requestsResult = $requestsStmt->get_result();
+            
+            while ($row = $requestsResult->fetch_assoc()) { ?>
+                <tr>
+                    <td><?php echo $row['requestID']; ?></td>
+                    <td><?php echo $row['request']; ?></td>
+                    <td>
+                        <form action="deleteRequest.php" method="post" style="display: inline-block;">
+                            <input type="hidden" name="requestID" value="<?php echo $row['requestID']; ?>">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
                     <div class="add">
                         <button onclick="window.location.href='addIngredient.php'" class="btn btn-primary btn-sm">Add Ingredient</button>
                         </div>
@@ -321,7 +320,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
         </div>
     </main>
 
-    <footer class="bg-info text-white mt-3 py-3 text-center fixed-bottom">
+    <footer class="bg-info text-white mt-3 py-3 text-center">
         &copy; 2023 Keep Me Healthy
     </footer>
 

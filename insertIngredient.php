@@ -11,6 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fats = $_POST['fats'];
     $carbs = $_POST['carbs'];
 
+    if ($portion < 0 || $proteins < 0 || $fats < 0 || $carbs < 0) {
+        echo "Error: Nutritional facts cannot be negative.";
+        exit();
+    }
+
     // Insert into 'ingredient' table
     $stmtIngredient = $dbconnect->prepare("INSERT INTO ingredient (type, ingredient) VALUES (?, ?)");
     $stmtIngredient->bind_param("ss", $type, $ingredientName);

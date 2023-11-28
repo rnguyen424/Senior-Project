@@ -12,6 +12,21 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     echo "<meta http-equiv='refresh' content='3;url=index.php'>";
     die;
 }
+
+
+function getFeedbackCount($recipeID, $feedbackType)
+{
+    global $dbconnect;
+
+    $countQuery = "SELECT COUNT(*) AS count FROM feedback WHERE recipeID = ? AND feedback = ?";
+    $countStmt = $dbconnect->prepare($countQuery);
+    $countStmt->bind_param("is", $recipeID, $feedbackType);
+    $countStmt->execute();
+    $countResult = $countStmt->get_result();
+    $countRow = $countResult->fetch_assoc();
+
+    return $countRow['count'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +36,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Recipe</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .like-count,
+        .dislike-count {
+        margin-left: 5px; /* Adjust the margin as needed */
+        margin-right: 5px;
+        }
+    </style>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
@@ -91,18 +113,18 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 echo ' ' . $imagePath;
             }
 
-            echo '<div class="mt-3"></div>';
-
              // Display the details below the image
-             echo '<table class="table">';
-             echo '<tr><th>Total Time</th><th>Servings</th><th>Goal</th><th>Diet</th></tr>';
-             echo '<tr>';
-             echo '<td>' . $row['time'] . ' mins</td>';
-             echo '<td>' . $row['servings'] . '</td>';
-             echo '<td>' . $row['goal'] . '</td>';
-             echo '<td>' . $row['diet'] . '</td>';
-             echo '</tr>';
-             echo '</table>';
+             echo '<div class="mt-4">'; // Add margin-top
+echo '<table class="table">';
+echo '<tr><th>Total Time</th><th>Servings</th><th>Goal</th><th>Diet</th></tr>';
+echo '<tr>';
+echo '<td>' . $row['time'] . ' mins</td>';
+echo '<td>' . $row['servings'] . '</td>';
+echo '<td>' . $row['goal'] . '</td>';
+echo '<td>' . $row['diet'] . '</td>';
+echo '</tr>';
+echo '</table>';
+echo '</div>';
 
             echo '<h2>Ingredients</h2>';
             // Fetch and display ingredients
@@ -168,12 +190,29 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     $totalCalories = (($totalCarbs * 4) + ($totalProteins * 4) + ($totalFats * 9)) / $servings;
 
                     // Display the total nutritional facts
-                    echo '<li>Calories: ' . $totalCalories . 'kcal (Per Serving)</li>';
-                    echo '<li>Proteins: ' . $totalProteins . 'g</li>';
-                    echo '<li>Carbohydrates: ' . $totalCarbs . 'g</li>';
-                    echo '<li>Fats: ' . $totalFats . 'g</li>';
+                    echo '<li>Calories: ' . intval($totalCalories) . 'kcal (Per Serving)</li>';
+                    echo '<li>Proteins: ' . intval($totalProteins) . 'g</li>';
+                    echo '<li>Carbohydrates: ' . intval($totalCarbs) . 'g</li>';
+                    echo '<li>Fats: ' . intval($totalFats) . 'g</li>';
 
                 echo '</ul>';
+
+                echo '<div class="row mt-4">';
+                echo '<div class="col-md-6 offset-md-3">'; // Center the like and dislike buttons
+                
+                // Like and Dislike buttons
+                echo '<form method="post" action="feedbackRecipe.php">';
+                echo '<input type="hidden" name="recipeID" value="' . $recipeID . '">';
+                echo '<button type="submit" name="like" class="btn btn-success btn-sm">Like</button>';
+                echo '<span class="like-count">' . getFeedbackCount($recipeID, 'like') . '</span>';
+                echo '<button type="submit" name="dislike" class="btn btn-danger btn-sm">Dislike</button>';
+                echo '<span class="dislike-count">' . getFeedbackCount($recipeID, 'dislike') . '</span>';
+                echo '</form>';
+                
+                echo '</div>';
+                echo '</div>';
+
+                
             } else {
                 echo 'No nutritional facts found for this recipe.';
             }

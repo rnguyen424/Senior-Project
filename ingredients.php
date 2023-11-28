@@ -20,6 +20,13 @@
         echo "<meta http-equiv='refresh' content='3;url=index.php'>";
         die;
     }
+
+     // Check for the session variable indicating successful request submission
+     if (isset($_SESSION['requestSent']) && $_SESSION['requestSent']) {
+        echo '<script>alert("Request sent!");</script>';
+        // Reset the session variable
+        unset($_SESSION['requestSent']);
+    }
     ?>
 
 <?php

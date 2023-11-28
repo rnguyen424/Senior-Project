@@ -77,13 +77,14 @@
             <input type="number" id="measure" name="measure" class="form-control" required><br>
 
             <label for="proteins">Proteins (grams):</label>
-            <input type="number" id="proteins" name="proteins" class="form-control" required><br>
+            <input type="text" id="proteins" name="proteins" class="form-control" required step="any"><br>
 
             <label for="fats">Fats (grams):</label>
-            <input type="number" id="fats" name="fats" class="form-control" required><br>
+            <input type="text" id="fats" name="fats" class="form-control" required step="any"><br>
 
             <label for="carbs">Carbohydrates (grams):</label>
-            <input type="number" id="carbs" name="carbs" class="form-control" required><br>
+            <input type="text" id="carbs" name="carbs" class="form-control" required step="any"><br>
+
 
 
             <button type="submit" name="submit" class="btn btn-primary">Add Ingredient</button>

@@ -25,7 +25,7 @@ if (isset($_GET['recipe_deleted']) && $_GET['recipe_deleted'] == 'true') {
 <html lang="en">
 
 <head>
-    <title>Admin Profile</title>
+    <title>User Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         .sidebar {
@@ -88,10 +88,6 @@ if (isset($_GET['recipe_deleted']) && $_GET['recipe_deleted'] == 'true') {
                         role="tab" aria-controls="v-pills-recipes" aria-selected="true">My Recipes</a>
                     <a class="nav-link" id="v-pills-feedback-tab" data-toggle="pill" href="#v-pills-feedback" role="tab"
                         aria-controls="v-pills-feedback" aria-selected="false">My Feedback</a>
-                    <a class="nav-link" id="v-pills-goals-tab" data-toggle="pill" href="#v-pills-goals" role="tab"
-                        aria-controls="v-pills-goals" aria-selected="false">My Goals</a>
-                    <a class="nav-link" id="v-pills-preferences-tab" data-toggle="pill" href="#v-pills-preferences"
-                        role="tab" aria-controls="v-pills-preferences" aria-selected="false">My Allergens & Preferences</a>
                 </div>
             </div>
             <div class="col-md-9">
@@ -119,7 +115,7 @@ if (isset($_GET['recipe_deleted']) && $_GET['recipe_deleted'] == 'true') {
                                         <td><?php echo $row['title']; ?></td>
                                         <td><?php echo $row['description']; ?></td>
                                         <td>
-                                        <button onclick="window.location.href='editRecipe.php?id=<?php echo $row['recipeID']; ?>'" class="btn btn-secondary btn-sm">Edit</button>
+                                        <button onclick="window.location.href='editRecipe.php?recipeID=<?php echo $row['recipeID']; ?>'" class="btn btn-secondary btn-sm">Edit</button>
                                         <form action="deleteRecipe.php" method="post" style="display: inline-block;">
                                         <input type="hidden" name="recipeID" value="<?php echo $row['recipeID']; ?>">
                                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
@@ -171,12 +167,6 @@ if (isset($_GET['recipe_deleted']) && $_GET['recipe_deleted'] == 'true') {
     <h3>Disliked Recipes</h3>
     <table class="table">
         <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Action</th>
-                <th></th> <!-- Added column for the View Recipe button -->
-            </tr>
         </thead>
         <tbody>
             <?php
@@ -203,34 +193,13 @@ if (isset($_GET['recipe_deleted']) && $_GET['recipe_deleted'] == 'true') {
             <?php } ?>
         </tbody>
     </table>
-
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-goals" role="tabpanel"
-                        aria-labelledby="v-pills-goals-tab">
-                        <h2>My Goals</h2>
-                        <!-- Your content for goals tab goes here -->
-                        <div class="add">
-                            <button onclick="window.location.href='addGoals.php'"class="btn btn-primary btn-sm">Add Goals</button>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-preferences" role="tabpanel"
-                        aria-labelledby="v-pills-preferences-tab">
-                        <h2>Allergens</h2>
-                        <!-- Your content for preferences tab goes here -->
-                        <div class="add">
-                            <button onclick="window.location.href='addAllergens.php'"class="btn btn-primary btn-sm">Add Allergens</button>
-                        </div>
-                        <h2>Preferences</h2>
-                        <div class="add">
-                            <button onclick="window.location.href='addPreferences.php'"class="btn btn-primary btn-sm">Add Preferences</button>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="bg-info text-white mt-3 py-3 text-center fixed-bottom">
+    <footer class="bg-info text-white mt-3 py-3 text-center ">
         &copy; 2023 Keep Me Healthy
     </footer>
 

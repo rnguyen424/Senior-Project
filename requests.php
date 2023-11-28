@@ -1,7 +1,7 @@
 <?php
     session_start();
     include 'connection.php';
-    
+
     // Check if the user is logged in
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         // User is logged in, you can display the protected content here
@@ -22,6 +22,9 @@
         $stmt->bind_param("s", $request);
         $stmt->execute();
         $stmt->close();
+
+        // Redirect to a confirmation page or perform other actions
+        $_SESSION['requestSent'] = true;
 
         // Redirect to a confirmation page or perform other actions
         header("Location: ingredients.php");
