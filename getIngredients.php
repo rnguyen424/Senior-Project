@@ -1,4 +1,5 @@
 <?php
+//get ingredients for search when creating recipe.
 session_start();
 include 'connection.php';
 

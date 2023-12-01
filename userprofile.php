@@ -2,6 +2,7 @@
 session_start();
 require 'connection.php';
 
+//Get ID from username
 $user = $_SESSION['username'];
 $stmt = $dbconnect->prepare("SELECT userID FROM user WHERE username = ?");
 $stmt->bind_param("s", $user);
@@ -29,19 +30,20 @@ if (isset($_GET['recipe_deleted']) && $_GET['recipe_deleted'] == 'true') {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         .sidebar {
-            background-color: #f0f0f0; /* Light gray background color, change as needed */
+            background-color: #f0f0f0; /* Light gray background color */
             padding: 20px;
         }
 
 
         #v-pills-recipes {
-            padding-bottom: 100px; /* Adjust the value based on your needs */
+            padding-bottom: 100px; 
         }
     </style>
 </head>
 
 <body class="bg-light">
     <header>
+        <!--nav bar, home button, profile, logout-->
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <a class="navbar-brand text-white" >Keep Me Healthy</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -80,6 +82,7 @@ if (isset($_GET['recipe_deleted']) && $_GET['recipe_deleted'] == 'true') {
         </nav>
     </header>
 
+    <!--tabs for profile, view recipes and feedback-->
     <main class="container-fluid mt-3">
         <div class="row">
             <div class="col-md-3">
@@ -94,6 +97,7 @@ if (isset($_GET['recipe_deleted']) && $_GET['recipe_deleted'] == 'true') {
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-recipes" role="tabpanel"
                         aria-labelledby="v-pills-recipes-tab">
+                        <!--view user recipes-->
                         <h2>My Recipes</h2>
                         <table class="table">
                             <thead>
@@ -135,7 +139,7 @@ if (isset($_GET['recipe_deleted']) && $_GET['recipe_deleted'] == 'true') {
     <!-- Liked Recipes Table -->
     <h3>Liked Recipes</h3>
     <table class="table">
-    <!-- ... (other table header rows) ... -->
+    
     <tbody>
         <?php
         $likedStmt = $dbconnect->prepare("SELECT feedback.feedbackID, recipe.title, recipe.description, recipe.recipeID FROM feedback 

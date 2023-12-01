@@ -13,7 +13,7 @@
         <style>
         /* Add custom styles for card and image */
         .card {
-        margin-bottom: 20px; /* Adjust margin as needed */
+        margin-bottom: 20px;
         border: 1px solid #ddd; /* Add border styling */
         border-radius: 10px; /* Add border radius for rounded corners */
         }
@@ -40,6 +40,7 @@
 </head>
 
 <body>
+    <!--nav bar, home-->
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <a class="navbar-brand text-white" onclick="window.location.href='index.php'">Keep Me Healthy</a>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -49,6 +50,10 @@
                     <input type="password" name="password" placeholder="Password" required class="form-control form-control-sm">
                     <button type="submit" name="submit" class="btn btn-primary btn-sm">Login</button>
                     <button type="button" onclick="location.href='register.php'" class="btn btn-success btn-sm">Register</button>
+
+                    <div class="small text-right mt-2">
+                    Forgot Password? <a href="contactUs.php">Contact Us</a>
+                </div>
                 </div>
             </form>
         </div>

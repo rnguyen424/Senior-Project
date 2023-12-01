@@ -4,11 +4,11 @@
 <head>
     <title>Add An Ingredient</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Add other necessary scripts and stylesheets -->
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <!-- Add your custom scripts if needed -->
+    
 </head>
 
 <body class="bg-light">
@@ -17,7 +17,7 @@
     include 'connection.php';
     // Check if the user is logged in
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // User is logged in
+        
     } else {
         // User is not logged in, show a message and redirect to the login page after 3 seconds
         echo "Please log in first to see this page.";
@@ -26,6 +26,7 @@
     }
     ?>
 
+<!--nav bar, home, profile, logout -->
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <a class="navbar-brand text-white" >Keep Me Healthy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -64,7 +65,7 @@
     <main class="container mt-3">
         <h2>Add An Ingredient</h2>
         <form action="insertIngredient.php" method="post" enctype="multipart/form-data">
-            <!-- Add your ingredient input fields here -->
+            <!--  ingredient input fields  -->
             <label for="type">Food Category:</label>
             <input type="text" id="type" name="type" class="form-control" required><br>
 
@@ -91,7 +92,7 @@
         </form>
     </main>
 
-    <footer class="bg-info text-white mt-3 py-3 text-center fixed-bottom">
+    <footer class="bg-info text-white mt-3 py-3 text-center ">
         &copy; 2023 Keep Me Healthy
     </footer>
 </body>

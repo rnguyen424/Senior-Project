@@ -3,12 +3,8 @@ session_start();
 include 'connection.php';
 
 // Enable error reporting
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 if (isset($_POST['submit'])) {
-    $recipeID = $_POST['recipeID']; // Add the hidden input field for recipeID in your HTML form
+    $recipeID = $_POST['recipeID']; 
 
     // Delete existing ingredients and instructions for the recipe
     if (!empty($_POST['selectedIngredients'])) {

@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
       echo "<script> alert('Email is taken')</script>";
       echo ("<script>window.history.go(-1);</script>");
     }
-    
+    //insert and create admin account
     else {
       $stmt = $dbconnect->prepare("INSERT INTO user (accountType, firstName, lastName,  username, email, password, phoneNumber) VALUES (?, ?, ?, ?, ?, ?, ?)");
       $stmt->bind_param('ssssssi', $accounttype, $firstname, $lastname, $username, $email, $hash, $number);

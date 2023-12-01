@@ -1,12 +1,13 @@
 <?php
 session_start();
 include 'connection.php'; 
-
+//check if logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
     echo ("<script> alert('You must be logged in first.')</script>");
     echo ("<script>window.history.go(-1);</script>");
 }
 
+//check if form filled out
 else{
     if (isset($_POST['submit'])) {
         $dateOfBirth = $_POST['dateOfBirth'];
@@ -19,7 +20,7 @@ else{
         $stmt->execute();
         $ID = $stmt->get_result()->fetch_assoc();
         $userID = $ID['userID'];
-    
+    //insert into user goals table
         $stmt = $dbconnect->prepare("INSERT INTO userDetails (dateOfBirth, weight, height, userID) VALUES (?, ?, ?, ?)");
         $stmt->bind_param('sddi', $dateOfBirth, $weight, $height, $userID);
     

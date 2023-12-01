@@ -7,7 +7,7 @@
     <style>
         /* Add custom styles for card and image */
         .card {
-        margin-bottom: 20px; /* Adjust margin as needed */
+        margin-bottom: 20px; 
         border: 1px solid #ddd; /* Add border styling */
         border-radius: 10px; /* Add border radius for rounded corners */
         }
@@ -41,7 +41,7 @@
 
     // Check if the user is logged in
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // User is logged in, you can display the protected content here
+        
     } else {
         // User is not logged in, show a message and redirect to the login page after 3 seconds
         echo "Please log in first to see this page.";
@@ -230,7 +230,7 @@
             </thead>
             <tbody>
                 <?php
-                // Ensure the database connection is still open
+                
                 require 'connection.php';
 
                 // Variables for pagination
@@ -259,7 +259,7 @@
                     echo '<tr><td colspan="5">No ingredients found.</td></tr>';
                 }
 
-                // Close the database connection
+                
                 mysqli_close($dbconnect);
                 ?>
             </tbody>

@@ -28,6 +28,7 @@
     </style>
 </head>
 
+<!--nav bar, home to index -->
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <a class="navbar-brand text-white">Keep Me Healthy</a>
@@ -46,6 +47,8 @@
 
     <main class="container">
         <h2>Admin Registration</h2>
+
+        <!--fill out form to register as an admin-->
 
         <form action="adminAccountCreate.php" method="post">
             <div class="form-group">

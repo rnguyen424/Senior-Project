@@ -16,12 +16,12 @@
             margin-top: 10px;
         }
 
-        /* Add styles for spacing between elements */
+       
         .form-group {
             margin-bottom: 20px;
         }
 
-        /* Add styles for the header */
+       
         h2 {
             text-align: center;
             margin-bottom: 20px;
@@ -30,7 +30,7 @@
 </head>
 
 <body class="bg-light">
-
+<!--nav bar, home button to index-->
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <a class="navbar-brand text-white">Keep Me Healthy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -45,7 +45,7 @@
             </ul>
         </div>
     </nav>
-
+<!--input fields for register page-->
     <main class="container">
         <h2>Register An Account</h2>
         <form action="accountCreate.php" method="post">

@@ -1,16 +1,18 @@
 <?php
 include 'connection.php';
 
+//path to ingredients data
 $csvFile = '/home/rnguyen2/final_data.csv';
 
 if (($handle = fopen($csvFile, 'r')) !== false) {
     fgetcsv($handle); 
 
+    //insert into ingredients tabls and nutritional facts
     while (($data = fgetcsv($handle)) !== false) {
         $ingredientSQL = "INSERT INTO ingredient (type, ingredient) VALUES (?, ?)";
         
         $ingredientStmt = $dbconnect->prepare($ingredientSQL);
-        $ingredientStmt->bind_param('ss', $data[2], $data[0]); // Assuming new column indexes 2 and 0
+        $ingredientStmt->bind_param('ss', $data[2], $data[0]); 
         $ingredientStmt->execute();
         
         $ingredientID = $dbconnect->insert_id;
@@ -19,7 +21,7 @@ if (($handle = fopen($csvFile, 'r')) !== false) {
         VALUES (?, ?, ?, ?, ?)";
         
         $nutritionalFactsStmt = $dbconnect->prepare($nutritionalFactsSQL);
-        $nutritionalFactsStmt->bind_param('ddddd', $data[1], $data[3], $data[5], $data[4], $ingredientID); // Assuming new column indexes 1, 3, 5, 4
+        $nutritionalFactsStmt->bind_param('ddddd', $data[1], $data[3], $data[5], $data[4], $ingredientID); 
         $nutritionalFactsStmt->execute();
     }
 

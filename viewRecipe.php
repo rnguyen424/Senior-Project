@@ -5,7 +5,7 @@ require 'connection.php';
 
 // Check if the user is logged in
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    // User is logged in, you can display the protected content here
+    
 } else {
     // User is not logged in, show a message and redirect to the login page after 3 seconds
     echo "Please log in first to see this page.";
@@ -13,7 +13,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     die;
 }
 
-
+//Get Feedback of the number of likes and dislikes
 function getFeedbackCount($recipeID, $feedbackType)
 {
     global $dbconnect;
@@ -39,12 +39,13 @@ function getFeedbackCount($recipeID, $feedbackType)
     <style>
         .like-count,
         .dislike-count {
-        margin-left: 5px; /* Adjust the margin as needed */
+        margin-left: 5px; 
         margin-right: 5px;
         }
     </style>
 <body>
 
+<!--nav bar, home button, profile, logout-->
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
     <a class="navbar-brand text-white">Keep Me Healthy</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -81,7 +82,7 @@ function getFeedbackCount($recipeID, $feedbackType)
 </nav>
 
 <main class="container mt-3">
-
+<!--view recipe-->
     <?php
     if (isset($_GET['recipeID'])) {
         $recipeID = $_GET['recipeID'];
@@ -105,8 +106,8 @@ function getFeedbackCount($recipeID, $feedbackType)
                 $imageData = file_get_contents($imagePath);
                 $base64Image = base64_encode($imageData);
 
-                $imageWidth = '600px'; // Example width
-                $imageHeight = '400px'; // Example height
+                $imageWidth = '600px'; 
+                $imageHeight = '400px'; 
             
                 echo '<img src="data:image/jpeg;base64,' . $base64Image . '" alt="Recipe Image" style="width: ' . $imageWidth . '; height: ' . $imageHeight . ';">';
             } else {
@@ -114,7 +115,7 @@ function getFeedbackCount($recipeID, $feedbackType)
             }
 
              // Display the details below the image
-             echo '<div class="mt-4">'; // Add margin-top
+             echo '<div class="mt-4">'; 
 echo '<table class="table">';
 echo '<tr><th>Total Time</th><th>Servings</th><th>Goal</th><th>Diet</th></tr>';
 echo '<tr>';

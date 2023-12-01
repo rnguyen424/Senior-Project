@@ -13,7 +13,7 @@
 
     // Check if the user is logged in
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // User is logged in, you can display the protected content here
+        
     } else {
         // User is not logged in, show a message and redirect to the login page after 3 seconds
         echo "Please log in first to see this page.";
@@ -47,7 +47,7 @@
 
 
     ?>
-
+<!--nav bar, search, home, profile, logout -->
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <a class="navbar-brand text-white">Keep Me Healthy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -115,7 +115,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    // Ensure the database connection is still open
+
                     require 'connection.php';
 
                     // Variables for pagination
@@ -144,7 +144,7 @@
                             echo '<td>' . $ingredientRow['fats'] . '</td>';
 
                             if ($isUserAdmin) {
-                                // Add buttons or any other actions for the admin
+                                // Add buttons  for the admin
                                 echo '<td>';
                                 echo '<button onclick="window.location.href=\'editIngredient.php?ingredientID=' . $ingredientRow['ingredientID'] . '\'" class="btn btn-warning btn-sm">Edit</button>&nbsp;';
                                 echo '<a href="deleteIngredient.php?ingredientID=' . $ingredientRow['ingredientID'] . '" class="btn btn-danger btn-sm">Delete</a>';
@@ -156,7 +156,7 @@
                         echo '<tr><td colspan="5">No ingredients found.</td></tr>';
                     }
 
-                    // Close the database connection
+                    
                     mysqli_close($dbconnect);
                     ?>
                 </tbody>

@@ -5,7 +5,7 @@ session_start();
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-
+//login function
 $stmt = $dbconnect->prepare("SELECT password, accountType FROM user WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();

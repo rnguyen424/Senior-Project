@@ -52,6 +52,8 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 
 <body class="bg-light">
     <header>
+
+    <!--nav bar, home, profile, logout -->
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <a class="navbar-brand text-white" >Keep Me Healthy</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -90,6 +92,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
         </nav>
     </header>
 
+    <!--tabs to all admin and user fucntions -->
     <main class="container-fluid mt-3">
         <div class="row">
             <div class="col-md-3">
@@ -213,6 +216,8 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
         </tbody>
     </table>
 
+    <!--edit users-->
+
                     </div>
                     <div class="tab-pane fade" id="v-pills-users" role="tabpanel" aria-labelledby="v-pills-users-tab">
                     <h2>All Users</h2>
@@ -247,6 +252,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
             <?php } ?>
         </tbody>
     </table>
+    <!--edit / delete all recipes -->
                     </div>
                     <div class="tab-pane fade" id="v-pills-recipes-admin" role="tabpanel" aria-labelledby="v-pills-recipes-admin-tab">
                     <h2>All Recipes</h2>
@@ -259,6 +265,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
             </tr>
         </thead>
         <tbody>
+            
             <?php
             $allRecipesStmt = $dbconnect->prepare("SELECT * FROM recipe");
             $allRecipesStmt->execute();

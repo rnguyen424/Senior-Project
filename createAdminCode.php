@@ -14,6 +14,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
+<!--insert code into database-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,8 +28,7 @@ if (isset($_POST['submit'])) {
     <div class="container">
       <form action="createAdminCode.php" method="post">
         <label for="admincode"><b>Admin Verification Code</b></label>
-        <input type="text" name="admincode" placeholder="Enter Admin Verification Code" id="admincode" required> <!-- Modified name attribute -->
-        
+        <input type="text" name="admincode" placeholder="Enter Admin Verification Code" id="admincode" required> 
         <input type="submit" name="submit" value="Create Code">
       </form>
     </div>

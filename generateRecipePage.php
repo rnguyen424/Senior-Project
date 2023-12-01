@@ -3,7 +3,7 @@ session_start();
 
 // Check if the user is logged in
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    // User is logged in, you can display the protected content here
+    
 } else {
     // User is not logged in, show a message and redirect to the login page after 3 seconds
     echo "Please log in first to see this page.";
@@ -33,7 +33,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         </form>
     </header>
     <main>
-        
+        <!--froms to fill out for generation of a recipe -->
         <form action="generateRecipe.php" method="post">
         <div class="container">
             <label for="dietType">Diet Type:</label>
@@ -42,7 +42,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 <option value="vegetarian">Vegetarian</option>
                 <option value="vegan">Vegan</option>
                 <option value="paleo">Paleo</option>
-                <!-- Add more diet types as needed -->
+                
             </select>
 
             <label for="goalType">Goal Type:</label>
@@ -51,7 +51,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 <option value="maintain_weight">Maintain Weight</option>
                 <option value="gain_weight">Gain Weight</option>
                 <option value="lose_weight">Lose Weight</option>
-                <!-- Add more goal types as needed -->
+                
             </select>
 
             <label for="allergens">Allergens:</label>

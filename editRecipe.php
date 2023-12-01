@@ -87,7 +87,7 @@ ini_set('display_errors', 1);
 
     // Check if the user is logged in
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // User is logged in, you can display the protected content here
+        
     } else {
         // User is not logged in, show a message and redirect to the login page after 3 seconds
         echo "Please log in first to see this page.";
@@ -117,7 +117,7 @@ ini_set('display_errors', 1);
         die;
     }
     ?>
-
+    <!--nav bar, home, profile, logout -->
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <a class="navbar-brand text-white" href="homepage.php">Keep Me Healthy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -227,7 +227,7 @@ ini_set('display_errors', 1);
         </div>
             <button type="button" id="addInstructionBtn" class="btn btn-secondary mb-3">Add Instruction</button>
 
-
+<!--drop down for diet type -->
             <div class="mb-3">
                 <label for="dietType">Diet Type:</label>
                 <select id="dietType" name="dietType" class="form-control">
@@ -242,7 +242,7 @@ ini_set('display_errors', 1);
                     ?>
                 </select>
             </div>
-
+<!--drop down for goals-->
 
 <label for="goalType">Goal Type:</label>
 <select id="goalType" name="goalType" class="form-control">
@@ -257,7 +257,7 @@ ini_set('display_errors', 1);
     ?>
 </select><br>
 
-<!-- Add other fields and populate them similarly -->
+<!-- image & check if image path is null-->
 
 <label for="image">Recipe Image (JPG or PNG only):</label>
 <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" class="form-control"><br>

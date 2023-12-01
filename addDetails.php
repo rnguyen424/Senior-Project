@@ -3,7 +3,7 @@ session_start();
 
 // Check if the user is logged in
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    // User is logged in, you can display the protected content here
+   
 } else {
     // User is not logged in, show a message and redirect to the login page after 3 seconds
     echo "Please log in first to see this page.";
@@ -11,7 +11,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     die;
 }
 ?>
-
+<!-- form to fill out for adding details to the user -->
 <!DOCTYPE html>
 <html>
 <head>

@@ -83,7 +83,7 @@
     include 'connection.php';
     // Check if the user is logged in
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // User is logged in, you can display the protected content here
+        
     } else {
         // User is not logged in, show a message and redirect to the login page after 3 seconds
         echo "Please log in first to see this page.";
@@ -92,6 +92,7 @@
     }
     ?>
 
+<!--nav bar home, profile, logout -->
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <a class="navbar-brand text-white" >Keep Me Healthy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -127,6 +128,7 @@
         </div>
     </nav>
 
+    <!-- form to fill out for creating a recipe-->
     <main class="container mt-3">
         <form action="insertRecipe.php" method="post" enctype="multipart/form-data">
             <label for="title">Recipe Title:</label>

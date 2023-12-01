@@ -25,13 +25,13 @@ function fetchIngredientInfo($query) {
     return null;
 }
 
-// Example ingredient query
+
 $ingredient_name = 'chicken breast';
 
 $ingredient_info = fetchIngredientInfo($ingredient_name);
 
 if ($ingredient_info) {
-    // Extract relevant data from $ingredient_info (e.g., calories, protein, carbohydrates, fat)
+    // Extract relevant data from $ingredient_info 
     $name = $ingredient_info['item_name'];
     $calories = $ingredient_info['nf_calories'];
     $protein = $ingredient_info['nf_protein'];
@@ -51,6 +51,6 @@ if ($ingredient_info) {
     echo "Ingredient not found in Nutritionix.";
 }
 
-// Close your database connection
+
 mysqli_close($connection);
 ?>

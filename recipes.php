@@ -3,13 +3,13 @@
 
 <head>
     <title>All Recipes</title>
-    <!-- Include necessary stylesheets and scripts -->
+   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         .card {
-        margin-bottom: 20px; /* Adjust margin as needed */
-        border: 1px solid #ddd; /* Add border styling */
-        border-radius: 10px; /* Add border radius for rounded corners */
+        margin-bottom: 20px; 
+        border: 1px solid #ddd; 
+        border-radius: 10px; 
         }
 
         /* Center the text in the card body */
@@ -19,7 +19,7 @@
 
         .like-count,
         .dislike-count {
-        margin-left: 5px; /* Adjust the margin as needed */
+        margin-left: 5px; 
         margin-right: 5px;
         }
     </style>
@@ -36,7 +36,7 @@
 
     // Check if the user is logged in
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // User is logged in, you can display the protected content here
+        
     } else {
         // User is not logged in, show a message and redirect to the login page after 3 seconds
         echo "Please log in first to see this page.";
@@ -133,7 +133,7 @@
 
         <div class="row">
             <?php
-            // Include the connection file
+            
             require 'connection.php';
 
             // Retrieve all recipes from the database
@@ -208,8 +208,6 @@
         &copy; 2023 Keep Me Healthy
     </footer>
 
-    <!-- Include necessary scripts -->
-    
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

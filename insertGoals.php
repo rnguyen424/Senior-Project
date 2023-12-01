@@ -1,11 +1,13 @@
 <?php
 session_start();
 include 'connection.php';
-
+// checked for login
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
     echo ("<script> alert('You must be logged in first.')</script>");
     echo ("<script>window.history.go(-1);</script>");
 }
+
+//check if from filled out
 else{if (isset($_POST['submit'])) {
     $goal = $_POST['goal'];
     $weeklyGoal = $_POST['weeklyGoal'];
@@ -18,7 +20,7 @@ else{if (isset($_POST['submit'])) {
     $ID = $stmt->get_result()->fetch_assoc();
     $userID = $ID['userID'];
 
-
+    ////insert goals for the user
     $stmt = $dbconnect->prepare("INSERT INTO goal (goal, weeklyGoal, goalDate, userID) VALUES (?, ?, ?, ?)");
     $stmt->bind_param('ddsi', $goal, $weeklyGoal, $goalDate, $userID);
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'connection.php'; // Include your database connection file
+require 'connection.php'; 
 
 // Enable error reporting
 ini_set('display_errors', 1);

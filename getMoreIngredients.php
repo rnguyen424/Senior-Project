@@ -1,5 +1,5 @@
 <?php
-// Ensure the database connection is still open
+
 require 'connection.php';
 
 // Retrieve the desired number of rows from the database
@@ -26,6 +26,6 @@ if ($ingredientResult && mysqli_num_rows($ingredientResult) > 0) {
     echo '<tr><td colspan="5">No more ingredients found.</td></tr>';
 }
 
-// Close the database connection
+
 mysqli_close($dbconnect);
 ?>

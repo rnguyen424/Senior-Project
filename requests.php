@@ -38,14 +38,15 @@
 <head>
     <title>Ingredient Request</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Add other necessary scripts and stylesheets -->
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <!-- Add your custom scripts if needed -->
+    
 </head>
 
 <body class="bg-light">
+    <!--nav bar, home button, profile, logout-->
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <a class="navbar-brand text-white" href="homepage.php">Keep Me Healthy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -80,7 +81,7 @@
             </ul>
         </div>
     </nav>
-
+    <!--request input-->
     <main class="container mt-3">
         <h2>Ingredient Request</h2>
         <form action="requests.php" method="post">

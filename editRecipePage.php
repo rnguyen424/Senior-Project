@@ -47,11 +47,10 @@
             })
             .catch(error => console.error('Error:', error));
 
-        // Handle form submission (you can add your own logic here)
+        // Handle form submission 
         document.getElementById('editRecipeForm').addEventListener('submit', function(event) {
             event.preventDefault();
             // Perform update operation using JavaScript fetch or submit the form to updateRecipe.php
-            // Add your logic here
         });
     </script>
 </body>

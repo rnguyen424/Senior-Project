@@ -4,11 +4,11 @@
 <head>
     <title>Edit Ingredient</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Add other necessary scripts and stylesheets -->
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <!-- Add your custom scripts if needed -->
+    
 </head>
 
 <body class="bg-light">
@@ -18,7 +18,7 @@
 
     // Check if the user is logged in
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        // User is logged in, you can display the protected content here
+        
     } else {
         // User is not logged in, show a message and redirect to the login page after 3 seconds
         echo "Please log in first to see this page.";
@@ -52,26 +52,13 @@
         die;
     }
     ?>
-
+<!--nav bar, home, profile, logout -->
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <a class="navbar-brand text-white">Keep Me Healthy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <form class="form-inline ml-auto" method="get" action="searchIngredients.php">
-                <div class="input-group">
-                    <select name="sort" class="form-control mr-2 btn-sm">
-                        <option value="">All Categories</option>
-                        <option value="1">Most Recently Added</option>
-                        <option value="2">By Type</option>
-                        <option value="3">A-Z</option>
-                    </select>
-                    <input type="text" name="search_query" class="form-control mr-2 btn-sm" placeholder="Search">
-                    <button type="submit" class="btn btn-primary btn-sm">Search</button>
-                </div>
-            </form>
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item mr-2">
@@ -130,7 +117,7 @@
         </form>
     </main>
 
-    <footer class="bg-info text-white mt-3 py-3 text-center fixed-bottom">
+    <footer class="bg-info text-white mt-3 py-3 text-center">
         &copy; 2023 Keep Me Healthy
     </footer>
 </body>
